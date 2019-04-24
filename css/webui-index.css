@@ -1,0 +1,292 @@
+/* Main page elements */
+body{
+	font-family:"Segoe UI", Verdana, Geneva, sans-serif;
+	line-height:1.75em;
+}
+.indexLogo {
+	position: fixed;
+	bottom: 10px;
+	left: 17px;
+}
+
+.loginInfo{
+	font-size:0.4em;
+	margin-bottom:10px;
+}
+
+.indexTitle{
+	margin:200px auto 60px auto;
+	color:#eee;
+	font-size:3em;
+	font-weight:lighter;
+	width:400px;
+	text-align:center
+}
+.indexTitle a{
+	text-decoration:none;
+	color:#eee;
+}
+.listOfAllUIs{
+	margin:25px auto 0px auto;
+	width:400px;
+	background-color:#eee;
+	border-radius:10px;
+}
+
+.builderLink{
+	margin:10px auto;
+	width:400px;
+	text-align:center;
+	font-size:0.7em;
+}
+.builderLink a {
+	color:#999;
+}
+
+.listOfAllUIs ul{
+	padding:0;
+}
+
+.listOfAllUIs form{
+	padding:18px;
+	margin-bottom:50px;
+}
+input[type=submit] {
+    width: 100%;
+    background-color: #151619;
+    color: white;
+	font-weight:bold;
+    padding: 14px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #a7da2e;
+	color:black;
+}
+
+input[type=text], select, input[type=number], input[type=password] {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+	background-color:white;
+}
+
+.listOfAllUIs .webUILinks{
+	list-style:none;
+	padding:15px 5px;
+	width:100%;
+/*	border-radius:10px;*/
+	text-align:center;
+	box-sizing:border-box;
+	border-collapse:collapse;
+	border-top:1px solid #ccc;
+}
+
+.listOfAllUIs .webUILinks:hover{
+	background-color:#ddd;
+	border-radius:10px;
+}
+
+.listOfAllUIs .webUILinks a{
+	color:#000;
+	text-transform:uppercase;
+	text-decoration:none;
+}
+
+#notificationDiv{
+	padding:10px;
+	color: #3c763d;
+    background-color: #e5f4c2;
+	text-align:center;
+    border: 1px solid #3c763d;
+	display:none;
+	position: fixed;
+	top: 30px;
+	left:50%;
+	margin-left:-10em;
+	z-index:101;
+	border-radius:3px;
+}
+
+#header{
+	overflow:hidden;
+	clear:both;
+}
+	
+.la-main{
+	float:left;
+	padding:30px;
+	border-radius:10px;
+	border:1px solid #CCC;
+	margin-bottom:50px;
+	box-sizing:border-box;
+}
+
+.la-row{
+	margin: 10px 0px;
+	clear:both;
+	overflow:hidden;
+	box-sizing:inherit;
+	width:100%;
+}
+
+.la-column{
+	float:left;
+	padding:10px;
+	box-sizing:inherit;
+}
+
+.col1{
+	width:99%;	
+}
+.col2{
+	width:49%;	
+}
+.col3{
+	width:32%;	
+}
+.col4{
+	width:24%;	
+}
+
+.elementWrapper{
+	clear:both;
+	margin-bottom:10px;
+	overflow:visible;
+	width:100%;
+	box-sizing:inherit;
+}
+
+.la-sidebar{
+	float:left;
+	margin-left:10px;
+	box-sizing:border-box;
+	padding:20px;
+	border-radius:10px;
+	border:1px solid #CCC;
+	width:14%;
+}
+
+@media (max-width:991px){
+	.la-sidebar{
+		display:none;
+	}
+	#la-main{
+		width:100%;
+	}
+}
+
+
+/*Command stack in a sidebar*/
+#command-stack-contents, #variables-values{
+	background-color:#F6F6F6;
+	border:1px solid #CCC;
+	padding:10px;
+	line-height:1.5em;
+	margin-bottom:20px;
+	border-radius:5px;
+	font-size:12px;
+}
+
+.la-sidebar table{
+	width:100%;
+}
+
+.la-sidebar th{
+	width:100%;
+	text-align:left;
+}
+
+/*end of command stack*/
+
+.footer {
+	width:400px;
+	margin:30px auto 0 auto;
+	text-align:center;
+	font-size:0.7em;
+	clear: both;
+}
+
+.footer a{
+	color:black;
+}
+
+/*Sliders*/
+div.slider-wrapper{
+	padding-right:20px;
+	width:100%;
+	box-sizing:inherit;
+}
+
+div.slider-with-handle div.ui-slider-handle {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+	z-index:99;
+}
+
+/*Color pickers*/
+div.color-sliders-wrapper{
+	width:60%;
+	float:left;
+	padding:10px;
+	box-sizing:inherit;
+}
+
+div.swatch-wrapper{
+	width:40%;
+	float:right;
+	padding:10px;
+	box-sizing:inherit;
+	overflow:hidden;
+}
+
+div.ui-slider {
+    float: left;
+    clear: left;
+    width: 100%;
+    margin: 15px 0px;
+	box-sizing:inherit;
+	display:inline-block;
+}
+
+div.ui-color-swatch{
+	width: 100%;
+    height: 125px;
+    margin-top: 15px;
+    background-image: none;
+	box-sizing:inherit;
+	clear:both;
+}
+div.swatch-bg{
+	background-image:url(../assets/transparentMarkers.png);
+	background-repeat:repeat;
+	
+}
+
+div.ui-color-label {
+    width: 100%;
+	clear:both;
+	font-size:10px;
+}
+
+/*Textboxes */
+.ui-textbox{
+	margin-right:5px;
+	border-radius:3px;
+	padding: .4em 1em;
+    border: 1px solid #c5c5c5;
+    color: #454545;
+    font-size: 1em;
+}
