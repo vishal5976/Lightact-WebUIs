@@ -109,7 +109,7 @@ echo "<div id=\"commandStackWrapper\"><h3>Current Command Stack</h3><div id=\"co
 echo "</div>";
 }
 
-echo "<div class='footer'>Logged in as ".$loggedInUser['username']." | <a href='index.php'>All WebUIs</a> | <a href='builder.php'>WebUI Builder</a>| <a href='logout.php'>Logout</a></div>";
+echo "<div class='footer'>Logged in as ".$loggedInUser['username']." | <a href='index.php'>All WebUIs</a> | <a href='builder.php'>WebUI Builder</a> | <a href='logout.php'>Logout</a></div>";
 
 
 echo '<script>'.$jsString.'
