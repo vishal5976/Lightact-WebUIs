@@ -176,11 +176,20 @@ input[type=text], select, input[type=number], input[type=password] {
 }
 
 @media (max-width:991px){
+	.col2{
+		width: 100%;
+	}
+	.col3{
+		width: 100%;
+	}
 	.la-sidebar{
 		display:none;
 	}
 	#la-main{
 		width:100%;
+	}
+	.ui-button{
+		width: 100%;
 	}
 }
 
