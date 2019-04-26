@@ -1,4 +1,7 @@
 <?php
+//Main database access configuration. Is included in most of the other php files.
+
+//default database access credentials.
 $servername = "laweb";
 $username = "Lightact";
 $password = "YouaresoLA";

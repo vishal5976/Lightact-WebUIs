@@ -13,12 +13,6 @@ function checkCredentials($level){
 		}
 		if($loggedInUser){    
 			if ($_COOKIE['password'] != password_hash($loggedInUser['password'],PASSWORD_DEFAULT)) {    
-				//header('Location: login.php?message=Passwords don\'t match.');
-/*				echo $loggedInUser['password'];
-				echo "<br>";
-				echo $_COOKIE['password'];
-				echo "<br>";
-				echo password_hash($loggedInUser['password'],PASSWORD_DEFAULT);*/
 			}
 			if ($level==1 && $loggedInUser['role']=='1'){
 				header('Location: login.php?message=You don\'t have access to this content.');

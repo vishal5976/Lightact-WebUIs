@@ -1,4 +1,6 @@
 <?php
+//main file for the back-end - aka WebUI Builder
+
 	include("scripts/phpFunctions.php");
 	include("scripts/laConfig.php");
 	require_once "./JBBCode/Parser.php";

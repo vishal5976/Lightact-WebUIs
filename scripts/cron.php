@@ -1,13 +1,11 @@
 <?php
 include("laConfig.php");
 
-//echo "to je test";
-
 /*
 Cron types:
- - file: downloada vsebino fajla in ga spravi v value column. Predpostavka je, da gre za text file
- - openweather: connecta se na openweather in downloada podatke in jih v jsonu spravi v value column
- - twitter: connecta se na twitter in podatke v jsonu spravi v value column
+ - file: downloads the file contents and puts it into the value column. We assume that it is a text file.
+ - openweather: Connects to open weather, downloads the data and saves them as JSON into value column
+ - twitter: Connects to Twitter and saves the data as JSON into the value column.
  */
 
 $sql="SELECT id,type,params FROM web_crons";
@@ -16,12 +14,9 @@ if($result){
 	while($row = $result->fetch(PDO::FETCH_ASSOC)){
 		if($row['type']=='file'){
 			$sql="UPDATE web_crons SET value='".addslashes(file_get_contents(urldecode($row['params'])))."' WHERE id=".$row['id'];
-			//echo $sql;
 			$updateCron=$db->query($sql);
 		}
-
 	}
-
 }
 
 ?>

@@ -1,6 +1,9 @@
 <?php 
 include("laConfig.php");
 
+//this file takes care of webUI variable and Cron job management. For example, if you delete a widget connected to a certain variable, 
+//it deletes this variable from the database and so on.
+
 if(isset($_POST['uiid'])){ //if post is set we are saving the data first
 	  if($_FILES["headerimage"]["name"]!=='') {//if user selected a file, we start with the upload process
 		  include("fileUploader.php");
@@ -42,10 +45,6 @@ if(isset($_POST['uiid'])){ //if post is set we are saving the data first
 	  //Delete old crons and create new ones in web_crons table
 	  $newCrons=json_decode($_POST['newCrons']);
 	  $oldCrons=json_decode($_POST['oldCrons']);
-/*	  print_r($newCrons);
-	  echo "<br><br>";
-	  echo "Old crons: ";
-	  print_r($oldCrons);*/
 	  if(count($oldCrons)>0){
 	  	$sql="DELETE FROM web_crons WHERE params=";
 		for($i=0;$i<count($oldCrons);$i++){

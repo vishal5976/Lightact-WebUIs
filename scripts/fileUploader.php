@@ -1,5 +1,7 @@
 <?php
 
+//this is used for uploading WebUI header image, but could be expanded for other uses later on.
+
 $target_dir = "../assets/";
 $target_file = $target_dir . basename($_FILES["headerimage"]["name"]);
 $uploadOk = 1;

@@ -1,10 +1,10 @@
 <?php 
-	include("scripts/phpFunctions.php");
-	include("scripts/laConfig.php");
-	require_once "./JBBCode/Parser.php";
-	include ("scripts/bbCodesForIndex.php");
+	include("scripts/phpFunctions.php"); //most of the functions for WebUIs are here
+	include("scripts/laConfig.php"); //database connection config
+	require_once "./JBBCode/Parser.php"; //JBBCode is used as the backbone for both front-end and back-end
+	include ("scripts/bbCodesForIndex.php"); //front end BBCode translation
 
-checkCredentials(0);
+checkCredentials(0); //checking whether the user has access rights
 $jsString='';
 
 //Check which WebUI we want to use.	
