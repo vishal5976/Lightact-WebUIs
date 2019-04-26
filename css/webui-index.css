@@ -191,6 +191,9 @@ input[type=text], select, input[type=number], input[type=password] {
 	.ui-button{
 		width: 100%;
 	}
+	.responsive-body{
+		margin: 50px 20px !important;
+	}
 }
 
 
