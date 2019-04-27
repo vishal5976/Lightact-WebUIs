@@ -301,6 +301,9 @@ if($selectedUI!=0){?>
           $bodytext=$stylingJson['bodytext'];
           $sidebaryesno=$stylingJson['sidebar'];
           $headerimage=$stylingJson['headerimage'];
+          if(!array_key_exists('HideUI', $stylingJson)){
+            $stylingJson['HideUI'] = null;
+          }
           $hideUI=$stylingJson['HideUI'];
      }
      

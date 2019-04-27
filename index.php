@@ -144,6 +144,9 @@ if($result){
 		$allUIs=$result->fetch(PDO::FETCH_ASSOC);
 		$usersWithAccess=json_decode($allUIs['users']);
 	 	$stylingJson=json_decode($allUIs['styling'],true);
+	 	if(!array_key_exists('HideUI', $stylingJson)){
+	 		$stylingJson['HideUI'] = null;
+	 	}
 		if($loggedInUser['role']=='0' && !$stylingJson['HideUI']){
 			if($j==0){
 				echo "<li class='webUILinks' style='border:none;'><a href='index.php?id=".$allUIs['id']."'>".$allUIs['name']."</a></li>";
