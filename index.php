@@ -24,10 +24,6 @@ if(isset($_GET['id'])){
 		}
 	}
 }
-	
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="us">
@@ -82,7 +78,7 @@ echo "<style>
 	}
 	</style>";
 
-echo "</head> <body style='margin:".$pagemargintop."px ".$pagemarginleft."px; background-color: ".$pagebg.";'>
+echo "</head> <body class='responsive-body' style='margin:".$pagemargintop."px ".$pagemarginleft."px; background-color: ".$pagebg.";'>
 <div id='notificationDiv'>
 Notifications of command database entries will appear here.
 </div>";
@@ -124,7 +120,7 @@ echo '$(document).ready(function() {
 echo '</script>';
 
 }else{//IF $_GET['id'] IS NOT SET WE DISPLAY A LIST OF ALL WEB-UIS THE USER HAS ACCESS TO
-$sql="SELECT id, name, users FROM web_uis";
+$sql="SELECT id, name, users, styling FROM web_uis";
 $result = $db->query($sql);
 
 if($result){
@@ -147,9 +143,10 @@ if($result){
 	for($i=0;$i<$result->rowCount();$i++){
 		$allUIs=$result->fetch(PDO::FETCH_ASSOC);
 		$usersWithAccess=json_decode($allUIs['users']);
-		if($loggedInUser['role']=='0'){
+	 	$stylingJson=json_decode($allUIs['styling'],true);
+		if($loggedInUser['role']=='0' && !$stylingJson['HideUI']){
 			if($j==0){
-				echo "<li class='webUILinks' style='border:none;'><a href='index.php?id=".$allUIs['id']."'>".$allUIs['name']."</a></li>";
+				echo "<li class='webUILinks' id='dash-element-".$allUIs['id']."' style='border:none;'><a href='index.php?id=".$allUIs['id']."'>".$allUIs['name']."</a></li>";
 			}else{
 				echo "<li class='webUILinks'><a href='index.php?id=".$allUIs['id']."'>".$allUIs['name']."</a></li>";
 			}

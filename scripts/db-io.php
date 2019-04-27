@@ -75,7 +75,7 @@ if(isset($_POST['uiid'])){ //if post is set we are saving the data first
 	  if(isset($_POST['users'])){
 		  $userJson=json_encode($_POST['users']);
 	  }
-	  $stylingJson=json_encode(array('pageBackground'=>$_POST['pageBackground'], 'pagemrgtop'=>$_POST['pagemrgtop'], 'pagemrglft'=>$_POST['pagemrglft'], 'bodybg'=>$_POST['bodybg'], 'bodytext'=>$_POST['bodytext'], 'sidebar'=>$sidebar, 'headerimage'=>$target_file));
+	  $stylingJson=json_encode(array('pageBackground'=>$_POST['pageBackground'], 'pagemrgtop'=>$_POST['pagemrgtop'], 'pagemrglft'=>$_POST['pagemrglft'], 'bodybg'=>$_POST['bodybg'], 'bodytext'=>$_POST['bodytext'], 'sidebar'=>$sidebar, 'headerimage'=>$target_file, 'HideUI'=>$_POST['hideUi']));
 
 	  $sql = "UPDATE web_uis SET name = '".$_POST['uiNameHidden']."', page = '".urlencode($_POST['pageInShortcodes'])."',  users='".$userJson."', styling='".$stylingJson."' WHERE id = ".$_POST['uiid'];
 	  $result = $db->query($sql);

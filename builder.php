@@ -1,42 +1,42 @@
 <?php
 //main file for the back-end - aka WebUI Builder
 
-	include("scripts/phpFunctions.php");
-	include("scripts/laConfig.php");
-	require_once "./JBBCode/Parser.php";
-	include ("scripts/bbCodesForBuilder.php");
+  include("scripts/phpFunctions.php");
+  include("scripts/laConfig.php");
+  require_once "./JBBCode/Parser.php";
+  include ("scripts/bbCodesForBuilder.php");
   
 checkCredentials(1);
 
 //Check if GET [ID] is set
 if(isset($_GET['id'])){
-	if($_GET['id']==-1){ //if id=-1 we create a new WebUI and reload the page with the id of the new UI
-		$sql = "INSERT INTO web_uis (name, page) VALUES ('New WebUI','[la-row][la-column class=\"col1\"][/la-column][/la-row]') ";
-	  	$result = $db->query($sql);
-		$sql ='SELECT MAX(id) FROM web_uis';
-		$result = $db->query($sql);
-		if($result){
-			$maxID=$result->fetch(PDO::FETCH_ASSOC);
-		}
-		$url=strtok($_SERVER["HTTP_REFERER"],'?');
-		header('Location: ' . $url."?id=".$maxID['MAX(id)']); 
-	}elseif(isset($_GET['delete'])){ //if 'delete' is set we are deleting the WebUI with _GET[id] and go back to builder.php page
-		$sql="DELETE FROM web_uis WHERE id='".$_GET['id']."'";
-	  	$result = $db->query($sql);
+  if($_GET['id']==-1){ //if id=-1 we create a new WebUI and reload the page with the id of the new UI
+    $sql = "INSERT INTO web_uis (name, page) VALUES ('New WebUI','[la-row][la-column class=\"col1\"][/la-column][/la-row]') ";
+      $result = $db->query($sql);
+    $sql ='SELECT MAX(id) FROM web_uis';
+    $result = $db->query($sql);
+    if($result){
+      $maxID=$result->fetch(PDO::FETCH_ASSOC);
+    }
+    $url=strtok($_SERVER["HTTP_REFERER"],'?');
+    header('Location: ' . $url."?id=".$maxID['MAX(id)']); 
+  }elseif(isset($_GET['delete'])){ //if 'delete' is set we are deleting the WebUI with _GET[id] and go back to builder.php page
+    $sql="DELETE FROM web_uis WHERE id='".$_GET['id']."'";
+      $result = $db->query($sql);
 
-		$url=strtok($_SERVER["HTTP_REFERER"],'?');
-		header('Location: ' . $url);
-	}
-	$selectedUI=$_GET['id']; //if ID is valid and delete is not set, we open that WebUI
-	
-	//we open the WebUI with $selectedUI ID
-	$sql="SELECT * FROM web_uis WHERE id='".$selectedUI."'";
-	$result = $db->query($sql);
-	if($result){
-		$laUI=$result->fetch(PDO::FETCH_ASSOC);
-	}
+    $url=strtok($_SERVER["HTTP_REFERER"],'?');
+    header('Location: ' . $url);
+  }
+  $selectedUI=$_GET['id']; //if ID is valid and delete is not set, we open that WebUI
+  
+  //we open the WebUI with $selectedUI ID
+  $sql="SELECT * FROM web_uis WHERE id='".$selectedUI."'";
+  $result = $db->query($sql);
+  if($result){
+    $laUI=$result->fetch(PDO::FETCH_ASSOC);
+  }
 }else{
-	$selectedUI=0; //if ID is not set we don't load any UIs
+  $selectedUI=0; //if ID is not set we don't load any UIs
 }
 
 $pagebg='';
@@ -46,7 +46,8 @@ $bodybg='';
 $bodytext='';
 $sidebaryesno='';
 $headerimage='';
-//****	
+$hideUI='';
+//****  
 
 ?>
 <!doctype html>
@@ -70,11 +71,11 @@ $headerimage='';
 <!--<script defer src="assets/js/all.js"></script>-->
   <script>
    $( function() {
- 	rowSortable();
-	columnSortable();
-	dialogDialog();
+  rowSortable();
+  columnSortable();
+  dialogDialog();
 
-	});
+  });
   </script>
 
 </head>
@@ -84,21 +85,21 @@ Various notifications will appear here.
 </div>
 <?php 
 if(isset($_GET['message'])){
-	if ($_GET['message']=='1'){
-	  $message="UI saved.";
-	  echo "<script> $(function(){
-		  document.getElementById(\"notificationDiv\").innerHTML = \"".$message."\";
-		  newNotification(1);
-	  });
-	  </script>";
-	}else{
-		$message=$_GET['message'];
-	  	echo "<script> $(function(){
-		  document.getElementById(\"notificationDiv\").innerHTML = \"".$message."\";
-		  newNotification(2);
-	  });
-	  </script>";	
-	}
+  if ($_GET['message']=='1'){
+    $message="UI saved.";
+    echo "<script> $(function(){
+      document.getElementById(\"notificationDiv\").innerHTML = \"".$message."\";
+      newNotification(1);
+    });
+    </script>";
+  }else{
+    $message=$_GET['message'];
+      echo "<script> $(function(){
+      document.getElementById(\"notificationDiv\").innerHTML = \"".$message."\";
+      newNotification(2);
+    });
+    </script>"; 
+  }
 }
 
 include("scripts/builderSidebar.php");
@@ -262,18 +263,18 @@ if($selectedUI!=0){?>
       </ul>
       
       <h4>Scheduled</h4>
-      	<ul class="la-elements">
-        	<!--FILE READER = 7-->
-        	<li class="la-element la-fileReader draggable ui-widget-content">
-            	<div class="elementIcon">
-                	<i class="fa fa-file-text" aria-hidden="true"></i>
+        <ul class="la-elements">
+          <!--FILE READER = 7-->
+          <li class="la-element la-fileReader draggable ui-widget-content">
+              <div class="elementIcon">
+                  <i class="fa fa-file-text" aria-hidden="true"></i>
                 </div>
                 <div class="elementControls">
                     <button class="iconButtons">
                         <i class="fa fa-pencil" aria-hidden="true" onClick="openDialogWindow($(this).parent().parent().siblings('.draggableContent'),7)"></i>
                     </button>
-                	<button class="iconButtons">
-                    	<i class="fa fa-remove" aria-hidden="true" onClick="removeCronElement($(this).closest('.la-element'))"></i>
+                  <button class="iconButtons">
+                      <i class="fa fa-remove" aria-hidden="true" onClick="removeCronElement($(this).closest('.la-element'))"></i>
                     </button>
                 </div>
                 <div class="draggableContent">
@@ -283,9 +284,9 @@ if($selectedUI!=0){?>
                     <div class="oldCronName elementHiddenData"></div>
                     <div class="oldCronParam elementHiddenData"></div>                    
                 </div>
-        	</li>
+          </li>
       </ul>
-            	
+              
       
       
       </div>
@@ -300,6 +301,7 @@ if($selectedUI!=0){?>
           $bodytext=$stylingJson['bodytext'];
           $sidebaryesno=$stylingJson['sidebar'];
           $headerimage=$stylingJson['headerimage'];
+          $hideUI=$stylingJson['HideUI'];
      }
      
      $uipassword=''; //for now this is always blank
@@ -341,9 +343,13 @@ if($selectedUI!=0){?>
       <input type="text" id="headerfilename" name="headerfilename" placeholder="Select a file below..." value="<?php echo $headerimage?>">
       <input type="file" id="headerimage" name="headerimage" ></div>
       
-      <label for="sidebar">Show default sidebar?</label><br>
-      <input type="checkbox" id="sidebar" name="sidebar" value=1 <?php if($sidebaryesno=='1'){echo "checked=\"checked\"";}?>></div>
-      
+      <label for="sidebar">Show debug sidebar?</label><br>
+      <input type="checkbox" id="sidebar" name="sidebar" value=1 <?php if($sidebaryesno=='1'){echo "checked=\"checked\"";}?>><br>
+
+      <label for="sidebar">Hide this WebUI?</label><br>
+      <input type="checkbox" id="hideUi" name="hideUi" value=1 <?php if($hideUI=='1'){echo "checked=\"checked\"";}?>><br>
+
+
       <input type="hidden" id="uiNameHidden" name="uiNameHidden" placeholder="Type in the name..." value="<?php echo $laUI['name'];?>">
       <input type="hidden" id="uiPassword" name="uiPassword" placeholder="If left empty, no password..." value="<?php echo $uipassword;?>">
       <input type="hidden" id="pageInShortcodes" name="pageInShortcodes">
@@ -356,22 +362,22 @@ if($selectedUI!=0){?>
       Select which users should have access to this UI.
       <select name="users[]" multiple>
       <?php 
-	  $sql="SELECT id,username FROM web_users WHERE role='1'";
-	  $result = $db->query($sql);
-	  for($i=0;$i<$result->rowCount();$i++){
-		  $user=$result->fetch(PDO::FETCH_ASSOC);
-		  echo "<option value='".$user['id']."' ";
-		  $usersWithAccess=json_decode($laUI['users']);
-		  if(!is_null($usersWithAccess)){
-			  if(in_array($user['id'],$usersWithAccess)){
-				  echo "selected";
-			  }
-		  }
-		  
-		  
-		  echo ">".$user['username']."</option>";
-	  }
-	  ?>
+    $sql="SELECT id,username FROM web_users WHERE role='1'";
+    $result = $db->query($sql);
+    for($i=0;$i<$result->rowCount();$i++){
+      $user=$result->fetch(PDO::FETCH_ASSOC);
+      echo "<option value='".$user['id']."' ";
+      $usersWithAccess=json_decode($laUI['users']);
+      if(!is_null($usersWithAccess)){
+        if(in_array($user['id'],$usersWithAccess)){
+          echo "selected";
+        }
+      }
+      
+      
+      echo ">".$user['username']."</option>";
+    }
+    ?>
       </select>
       <input type="submit" value="Save">
       </form>
@@ -381,7 +387,7 @@ if($selectedUI!=0){?>
     </div>
 <?php
 }else{
-	//echo "<div class='pickUIBuilder'>Pick a WebUI on the left or create a new one.</div>";
+  //echo "<div class='pickUIBuilder'>Pick a WebUI on the left or create a new one.</div>";
 }?>
 <script>
 
@@ -391,24 +397,24 @@ $("#pagebg").spectrum({
     change: function(color) {
         $("#pagebgLabel").text(color.toHexString());
     },
-	showInput: true,
-	preferredFormat: "hex"
+  showInput: true,
+  preferredFormat: "hex"
 });
 $("#bodybg").spectrum({
     color: "<?php echo $bodybg?>",
     change: function(color) {
         $("#bodybgLabel").text(color.toHexString());
     },
-	showInput: true,
-	preferredFormat: "hex"
+  showInput: true,
+  preferredFormat: "hex"
 });
 $("#bodytext").spectrum({
     color: "<?php echo $bodytext?>",
     change: function(color) {
         $("#bodytextLabel").text(color.toHexString());
     },
-	showInput: true,
-	preferredFormat: "hex"
+  showInput: true,
+  preferredFormat: "hex"
 });
 
 //Actions on Save button
