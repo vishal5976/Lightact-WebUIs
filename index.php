@@ -146,7 +146,7 @@ if($result){
 	 	$stylingJson=json_decode($allUIs['styling'],true);
 		if($loggedInUser['role']=='0' && !$stylingJson['HideUI']){
 			if($j==0){
-				echo "<li class='webUILinks' id='dash-element-".$allUIs['id']."' style='border:none;'><a href='index.php?id=".$allUIs['id']."'>".$allUIs['name']."</a></li>";
+				echo "<li class='webUILinks' style='border:none;'><a href='index.php?id=".$allUIs['id']."'>".$allUIs['name']."</a></li>";
 			}else{
 				echo "<li class='webUILinks'><a href='index.php?id=".$allUIs['id']."'>".$allUIs['name']."</a></li>";
 			}
