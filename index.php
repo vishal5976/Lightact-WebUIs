@@ -144,7 +144,7 @@ if($result){
 		$allUIs=$result->fetch(PDO::FETCH_ASSOC);
 		$usersWithAccess=json_decode($allUIs['users']);
 	 	$stylingJson=json_decode($allUIs['styling'],true);
-	 	if(!array_key_exists('HideUI', $stylingJson)){
+	 	if(is_array($stylingJson) && !array_key_exists('HideUI', $stylingJson)){
 	 		$stylingJson['HideUI'] = null;
 	 	}
 		if($loggedInUser['role']=='0' && !$stylingJson['HideUI']){
