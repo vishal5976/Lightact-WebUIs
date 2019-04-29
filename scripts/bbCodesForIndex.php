@@ -25,7 +25,7 @@ $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 
 //SLIDER
-$builder = new JBBCode\CodeDefinitionBuilder('la-slider', '<div class="elementWrapper"><div class="slider-wrapper"><div id="{id}" class="slider-with-handle"><div id="{id}-handle" class="ui-slider-handle"></div></div></div></div><script>'.buildSliderJS().'</script>');
+$builder = new JBBCode\CodeDefinitionBuilder('la-slider', '<div id="{id}-slider"></div>'.buildSliderJS());
 $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 

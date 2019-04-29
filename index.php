@@ -37,7 +37,7 @@ if(isset($_GET['id'])){
     <script src="jquery/external/jquery/jquery.js"></script>
 	<script src="jquery/jquery-ui.js"></script>
     <script src="scripts/jquery.ui.touch-punch.min.js"></script>
-    <script src="scripts/webUIJavascript.js"></script>
+    <script src="scripts/webUIJavascript.js?sd=sdfsdf"></script>
     
 <?php
 
@@ -100,7 +100,7 @@ if ($sidebaryesno=='1'){
 echo "<div class='la-sidebar' style='width:".(95-$mainWidth)."%; background-color: ".$bodybg.";  color: ".$bodytext."; '>";
 
 echo "<div id=\"commandStackWrapper\"><h3>Current Command Stack</h3><div id=\"command-stack-contents\"></div><div id=\"empty-command-stack\"><button id=\"empty-commands-button\" onclick=\"getCommandsAndVariables('emptyCommands')\">Empty Command Stack</button></div>
-</div><div id='variablesWrapper'><h3>Current Variables</h3><div id='variables-values'></div><span id='updateCountdown' style='font-style:italic; font-size:12px;'>Next refresh in 7s.</span></div>";
+</div><div id='variablesWrapper'><h3>Current Variables</h3><div id='variables-values'></div><span id='updateCountdown' style='font-style:italic; font-size:12px;'>Next refresh in 1s.</span></div>";
 
 echo "</div>";
 }

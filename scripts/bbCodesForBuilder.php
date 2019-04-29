@@ -40,6 +40,7 @@ $builder = new JBBCode\CodeDefinitionBuilder('la-slider', '<li class="la-element
       <div class="sliderMin elementData"><span style="font-weight:bold">Min: </span><span class="minValue">{min}</span></div>
       <div class="sliderMax elementData"><span style="font-weight:bold">Max: </span><span class="maxValue">{max}</span></div>
       <div class="sliderNewName elementData"><span style="font-weight:bold">Variable: </span><span class="sliderNewNameValue">{varname}</span></div><div class="oldNameValue elementHiddenData">{varname}</div>
+      <div class="sliderHide elementData"><span style="font-weight:bold">Hide: </span><span class="hideSliderWidget">{hide}</span></div>
     </div>
   </li>');
 $builder->setUseOption(true);

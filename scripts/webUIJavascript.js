@@ -26,10 +26,10 @@ function setVariable(variableName,variableValue){
 		}
 	});
 }
-$secondsToUpdate=7;
+$secondsToUpdate=1;
 
 function getCommandsAndVariables(command) {
-	$secondsToUpdate=7;
+	$secondsToUpdate=1;
 	//this function gets current command stack  	
 	$.ajax({
     url: scriptUrl+"?e="+command,
@@ -42,7 +42,7 @@ function getCommandsAndVariables(command) {
 	  }
     }
   });
-	setTimeout(function(){getCommandsAndVariables('getAll');}, 7000);
+	setTimeout(function(){getCommandsAndVariables('getAll');}, 1000);
 }
 
 function updateCountdown(){
@@ -105,7 +105,7 @@ function saveUI() {
 					columnContents+="[la-button id=\"button-"+makeID(5)+"\" label=\""+$(this).find('.labelValue').html()+"\" command=\""+$(this).find('.commandValue').html()+"\"][/la-button]";
 					
 				}else if($(this).hasClass('la-slider')){ // SLIDER
-					columnContents+="[la-slider id=\"slider-"+makeID(5)+"\" min=\""+$(this).find('.minValue').html()+"\" max=\""+$(this).find('.maxValue').html()+"\" varname=\""+$(this).find('.sliderNewNameValue').html()+"\"][/la-slider]";
+					columnContents+="[la-slider id=\"slider-"+makeID(5)+"\" min=\""+$(this).find('.minValue').html()+"\" max=\""+$(this).find('.maxValue').html()+"\" varname=\""+$(this).find('.sliderNewNameValue').html()+"\" hide=\""+$(this).find('.hideSliderWidget').html()+"\"][/la-slider]";
 					if($(this).find('.sliderNewNameValue').html()!=$(this).find('.oldNameValue').html()){
 						newVariables.push($(this).find('.sliderNewNameValue').html());
 						if($(this).find('.oldNameValue').html()!=''){
@@ -199,7 +199,9 @@ function openDialogWindow(elementReference,elementType){
 		$( "#dialog" ).find('.sliderDialog').css('display','block');
 		$( "#dialog" ).find('.sliderDialog').find('#sliderMin').val(elementReference.find('.minValue').html());	
 		$( "#dialog" ).find('.sliderDialog').find('#sliderMax').val(elementReference.find('.maxValue').html());	
-		$( "#dialog" ).find('.sliderDialog').find('#sliderNewName').val(elementReference.find('.sliderNewNameValue').html());		
+		$( "#dialog" ).find('.sliderDialog').find('#sliderNewName').val(elementReference.find('.sliderNewNameValue').html());
+		var hideCheckData = (elementReference.find('.hideSliderWidget').html() == 1) ? true : false;
+		$( "#dialog" ).find('.sliderDialog').find('#hideSliderWidget').prop('checked', hideCheckData);
 	}
 	if(elementType==3){//Color picker
 		$( "#dialog" )
@@ -373,7 +375,7 @@ function dialogDialog(){
 					  $(this).data('contentReference').find('.minValue').html($(this).find("#sliderMin").val());
 					  $(this).data('contentReference').find('.maxValue').html($(this).find("#sliderMax").val());
 					  $(this).data('contentReference').find('.sliderNewNameValue').html($(this).find("#sliderNewName").val());
-		  
+	  				  $(this).data('contentReference').find('.hideSliderWidget').html($(this).find('#hideSliderWidget').is(':checked') ? '1' : '0');
 				  }else if($(this).data('elementType')==3){ //Color picker
 					   $(this).data('contentReference').find('.colorNewNameValue').html($(this).find("#colorNewName").val());
 					   

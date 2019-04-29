@@ -64,7 +64,7 @@ $hideUI='';
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
   <script src="jquery/jquery-3.2.1.min.js"></script>
   <script src="jquery/jquery-ui.js"></script>
-  <script src="scripts/webUIJavascript.js"></script>
+  <script src="scripts/webUIJavascript.js?s"></script>
   <script src="scripts/spectrum.js"></script>
   <script type="text/javascript" src="scripts/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 <!--<script src="https://use.fontawesome.com/50c13653cc.js"></script>-->
@@ -103,7 +103,6 @@ if(isset($_GET['message'])){
 }
 
 include("scripts/builderSidebar.php");
-
 if($selectedUI!=0){?>
     <div class="mainWrapper">
       <div class="builderHeader">Edit WebUI:
@@ -135,6 +134,7 @@ if($selectedUI!=0){?>
             <div class="stylingProperty">Min: <br><input name="sliderMin" id="sliderMin" type="number" value=""></div>
             <div class="stylingProperty">Max: <br><input name="sliderMax" id="sliderMax" type="number" value=""></div>
             <div class="stylingProperty">Variable name: <br><input name="sliderNewName" id="sliderNewName" type="text" value=""></div>
+            <input type = "checkbox" name="hideSliderWidget" id="hideSliderWidget" value="1">Hide this widget</input>
           </div>
           <div class="colorDialog">
               Variable name: <br><input name="colorNewName" id="colorNewName" type="text" value="">
@@ -208,9 +208,10 @@ if($selectedUI!=0){?>
                 <i class="fa fa-pencil" aria-hidden="true" onClick="openDialogWindow($(this).parent().parent().siblings('.draggableContent'),2)"></i></button>
             <button class="iconButtons"><i class="fa fa-remove" aria-hidden="true" onClick="removeElement($(this).closest('.la-element'))"></i></button></div>
           <div class="draggableContent"><div class="elementName">Slider</div>
-            <div class="sliderMin elementData"><span style="font-weight:bold">Min: </span><span class="minValue"></span></div>
+            <div class="slirMin elementData"><span style="font-weight:bold">Min: </span><span class="minValue"></span></div>
             <div class="sliderMax elementData"><span style="font-weight:bold">Max: </span><span class="maxValue"></span></div>
-            <div class="sliderNewName elementData"><span style="font-weight:bold">Variable: </span><span class="sliderNewNameValue"></span></div>
+            <div class="sderNewName elementData"><span style="font-weight:bold">Variable: </span><span class="sliderNewNameValue"></span></div>
+            <div class="sliderHide elementData"><span style="font-weight:bold">Hide: </span><span class="hideSliderWidget"></span></div>
             <div class="oldNameValue elementHiddenData"></div>
           </div>
         </li>

@@ -50,7 +50,12 @@ function insertVariableValues($shortcodeText){
 
 function buildSliderJS(){
 //Create JS string that reads the {parameters} from shortcodes
-$jsString='$( function() {
+$jsString='
+<script>
+if({Hide} != 1){
+	document.getElementById("{id}-slider").innerHTML = `<div class="elementWrapper"><div class="slider-wrapper"><div id="{id}"class="slider-with-handle"><div id="{id}-handle"class="ui-slider-handle"></div></div></div></div>`;
+}
+$( function() {
 	var handle = $("#{id}-handle" );
     $( "#{id}" ).slider({
 		max: {max},
@@ -66,7 +71,9 @@ $jsString='$( function() {
 			setVariable("{varname}",+$( this ).slider( "option", "value" ));
 		}
     });
-} );';
+} );
+</script>
+';
 
 return $jsString;
 }
