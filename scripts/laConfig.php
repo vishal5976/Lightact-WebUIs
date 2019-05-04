@@ -2,9 +2,9 @@
 //Main database access configuration. Is included in most of the other php files.
 
 //default database access credentials.
-$servername = "Lightact-webuis";
+$servername = "lightact.test";
 $username = "Lightact";
-$password = "Rjsoft12345";
+$password = "YouaresoLA";
 $loggedInUser;
 
 //open connection to MySQL database 'lightact'
