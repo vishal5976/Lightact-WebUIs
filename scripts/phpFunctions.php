@@ -48,6 +48,21 @@ function insertVariableValues($shortcodeText){
 	return $shortcodeText;
 }
 
+function buildButtonJS(){
+//Create JS string that reads the {parameters} from shortcodes
+$jsString='
+<script>
+if({Hide} != 1){
+	document.getElementById("{id}-button").innerHTML = `<div class="elementWrapper">
+	<button id="{id}" onClick="sendCommand(\'{command}\')">{label}</button>
+</div>`;
+}
+$( "#{id}" ).button();
+</script>';
+
+return $jsString;
+}
+
 function buildSliderJS(){
 //Create JS string that reads the {parameters} from shortcodes
 $jsString='

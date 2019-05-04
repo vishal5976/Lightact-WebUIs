@@ -20,7 +20,7 @@ $builder = new JBBCode\CodeDefinitionBuilder('la-text', '<div class="elementWrap
 $parser->addCodeDefinition($builder->build());
 
 //BUTTON
-$builder = new JBBCode\CodeDefinitionBuilder('la-button', '<div class="elementWrapper"><button id="{id}" onClick="sendCommand(\'{command}\')">{label}</button></div><script>$( "#{id}" ).button();</script>');
+$builder = new JBBCode\CodeDefinitionBuilder('la-button', '<div id="{id}-button"></div>'.buildButtonJS());
 $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 

@@ -102,7 +102,7 @@ function saveUI() {
 					columnContents+="[la-text]"+$(this).find('.draggableContent').html()+"[/la-text]";
 					
 				}else if($(this).hasClass('la-button')){ // BUTTON
-					columnContents+="[la-button id=\"button-"+makeID(5)+"\" label=\""+$(this).find('.labelValue').html()+"\" command=\""+$(this).find('.commandValue').html()+"\"][/la-button]";
+					columnContents+="[la-button id=\"button-"+makeID(5)+"\" label=\""+$(this).find('.labelValue').html()+"\" command=\""+$(this).find('.commandValue').html()+"\" hide=\""+$(this).find('.hideButtonWidget').html()+"\"][/la-button]";
 					
 				}else if($(this).hasClass('la-slider')){ // SLIDER
 					columnContents+="[la-slider id=\"slider-"+makeID(5)+"\" min=\""+$(this).find('.minValue').html()+"\" max=\""+$(this).find('.maxValue').html()+"\" varname=\""+$(this).find('.sliderNewNameValue').html()+"\" hide=\""+$(this).find('.hideSliderWidget').html()+"\"][/la-slider]";
@@ -190,6 +190,8 @@ function openDialogWindow(elementReference,elementType){
 		$( "#dialog" ).find('.buttonDialog').css('display','block');
 		$( "#dialog" ).find('.buttonDialog').find('#buttonLabel').val(elementReference.find('.labelValue').html());	
 		$( "#dialog" ).find('.buttonDialog').find('#buttonCommand').val(elementReference.find('.commandValue').html());		
+		var hideCheckData = (elementReference.find('.hideButtonWidget').html() == 1) ? true : false;
+		$( "#dialog" ).find('.buttonDialog').find('#hideButtonWidget').prop('checked', hideCheckData);
 	}
 	if(elementType==2){//Slider
 		$( "#dialog" )
@@ -370,7 +372,7 @@ function dialogDialog(){
 				  }else if($(this).data('elementType')==1){ //Button
 					   $(this).data('contentReference').find('.labelValue').html($(this).find("#buttonLabel").val());
 					   $(this).data('contentReference').find('.commandValue').html($(this).find("#buttonCommand").val());
-					   
+					   $(this).data('contentReference').find('.hideButtonWidget').html($(this).find('#hideButtonWidget').is(':checked') ? '1' : '0');
 				  }else if($(this).data('elementType')==2){ //Slider
 					  $(this).data('contentReference').find('.minValue').html($(this).find("#sliderMin").val());
 					  $(this).data('contentReference').find('.maxValue').html($(this).find("#sliderMax").val());

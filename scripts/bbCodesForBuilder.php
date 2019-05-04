@@ -28,7 +28,7 @@ $parser->addCodeDefinition($builder->build());
 $builder = new JBBCode\CodeDefinitionBuilder('la-button', '<li class="la-element la-button ui-widget-content" onMouseOver="$(this).find(\'.elementControls\').css(\'visibility\',\'visible\');" onMouseOut="$(this).find(\'.elementControls\').css(\'visibility\',\'hidden\');">
     <div class="elementIcon"><i class="fa fa-minus-square-o" aria-hidden="true"></i></div>
     <div class="elementControls"><button class="iconButtons"><i class="fa fa-pencil" aria-hidden="true" onClick="openDialogWindow($(this).parent().parent().siblings(\'.draggableContent\'),1)"></i></button><button class="iconButtons"><i class="fa fa-remove" aria-hidden="true" onClick="$(this).closest(\'.la-element\').remove()"></i></button></div>
-    <div class="draggableContent"><div class="elementName">Button</div><div class="buttonLabel elementData"><span style="font-weight:bold">Label: </span><span class="labelValue">{label}</span></div><div class="buttonCommand elementData"><span style="font-weight:bold">Command: </span><span class="commandValue">{command}</span></div></div></li>');
+    <div class="draggableContent"><div class="elementName">Button</div><div class="buttonLabel elementData"><span style="font-weight:bold">Label: </span><span class="labelValue">{label}</span></div><div class="buttonCommand elementData"><span style="font-weight:bold">Command: </span><span class="commandValue">{command}</span></div><div class="buttonHide elementData"><span style="font-weight:bold">Hide: </span><span class="hideButtonWidget">{hide}</span></div></div></li>');
 $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 

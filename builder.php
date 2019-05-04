@@ -129,6 +129,7 @@ if($selectedUI!=0){?>
           <div class="buttonDialog">
               <div class="stylingProperty">Label: <br><input name="buttonLabel" id="buttonLabel" type="text" value=""></div>
               <div class="stylingProperty">Command: </br><input name="buttonCommand" id="buttonCommand" type="text" value=""></div>
+               <input type = "checkbox" name="hideButtonWidget" id="hideButtonWidget" value="1">Hide this widget</input>
           </div>
           <div class="sliderDialog">
             <div class="stylingProperty">Min: <br><input name="sliderMin" id="sliderMin" type="number" value=""></div>
@@ -197,6 +198,7 @@ if($selectedUI!=0){?>
             <div class="elementName">Button</div>
             <div class="buttonLabel elementData"><span style="font-weight:bold">Label: </span><span class="labelValue"></span></div>
             <div class="buttonCommand elementData"><span style="font-weight:bold">Command: </span><span class="commandValue"></span></div>
+            <div class="buttonHide elementData"><span style="font-weight:bold">Hide: </span><span class="hideButtonWidget"></span></div>
           </div>
         </li>
         
