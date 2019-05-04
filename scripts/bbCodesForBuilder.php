@@ -66,6 +66,7 @@ $builder = new JBBCode\CodeDefinitionBuilder('la-spinner', '<li class="la-elemen
     	<div class="elementName">Spinner</div>
         <div class="spinnerNewName elementData"><span style="font-weight:bold">Variable: </span><span class="spinnerNewNameValue">{varname}</span></div>
 		<div class="oldNameValue elementHiddenData">{varname}</div>
+    <div class="spinnerHide elementData"><span style="font-weight:bold">Hide: </span><span class="hideSpinnerWidget">{hide}</span>
     </div>
   </li>');
 $builder->setUseOption(true);

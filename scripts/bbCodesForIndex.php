@@ -40,7 +40,7 @@ $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 
 //SPINNER
-$builder = new JBBCode\CodeDefinitionBuilder('la-spinner', '<div class="elementWrapper"><input id="{id}" value="{value}"></div><script>'.buildSpinnerJS().'</script>');
+$builder = new JBBCode\CodeDefinitionBuilder('la-spinner', '<div id="{id}-spinner"></div>'.buildSpinnerJS());
 $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 

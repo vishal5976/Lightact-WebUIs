@@ -198,11 +198,18 @@ function buildColorJS(){
 
 function buildSpinnerJS(){
 //Create JS string that reads the {parameters} from shortcodes
-$jsString='$( "#{id}" ).spinner({
+$jsString='
+<script>
+if({Hide} != 1){
+	document.getElementById("{id}-spinner").innerHTML = `<div class="elementWrapper"><input id="{id}" value="{value}"></div>`;
+}
+$( "#{id}" ).spinner({
 	change: function(event,ui){
 		setVariable(\'{varname}\',$( this ).spinner( "value" ));
 	}
-});';
+});
+</script>
+';
 return $jsString;
 }
 

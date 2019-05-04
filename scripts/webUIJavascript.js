@@ -122,7 +122,7 @@ function saveUI() {
 						}
 					}
 				}else if($(this).hasClass('la-spinner')){ // SPINNER
-					columnContents+="[la-spinner id=\"spinner-"+makeID(5)+"\" varname=\""+$(this).find('.spinnerNewNameValue').html()+"\"][/la-spinner]";
+					columnContents+="[la-spinner id=\"spinner-"+makeID(5)+"\" varname=\""+$(this).find('.spinnerNewNameValue').html()+"\" hide=\""+$(this).find('.hideSpinnerWidget').html()+"\"][/la-spinner]";
 					if($(this).find('.spinnerNewNameValue').html()!=$(this).find('.oldNameValue').html()){
 						newVariables.push($(this).find('.spinnerNewNameValue').html());
 						if($(this).find('.oldNameValue').html()!=''){
@@ -220,6 +220,8 @@ function openDialogWindow(elementReference,elementType){
 			.dialog("open");
 		$( "#dialog" ).find('.spinnerDialog').css('display','block');
 		$( "#dialog" ).find('.spinnerDialog').find('#spinnerNewName').val(elementReference.find('.spinnerNewNameValue').html());		
+		var hideCheckData = (elementReference.find('.hideSpinnerWidget').html() == 1) ? true : false;
+		$( "#dialog" ).find('.spinnerDialog').find('#hideSpinnerWidget').prop('checked', hideCheckData);
 	}
 	if(elementType==5){//Padding
 		$( "#dialog" )
@@ -382,8 +384,8 @@ function dialogDialog(){
 					   $(this).data('contentReference').find('.colorNewNameValue').html($(this).find("#colorNewName").val());
 					   
 				  }else if($(this).data('elementType')==4){ //Spinner
-					   $(this).data('contentReference').find('.spinnerNewNameValue').html($(this).find("#spinnerNewName").val());
-				  
+					  $(this).data('contentReference').find('.spinnerNewNameValue').html($(this).find("#spinnerNewName").val());
+				  	  $(this).data('contentReference').find('.hideSpinnerWidget').html($(this).find('#hideSpinnerWidget').is(':checked') ? '1' : '0');
 				  }else if($(this).data('elementType')==5){ //Padding
 					   $(this).data('contentReference').find('.heightValue').html($(this).find("#paddingHeight").val());
 				  
