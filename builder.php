@@ -64,7 +64,7 @@ $hideUI='';
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
   <script src="jquery/jquery-3.2.1.min.js"></script>
   <script src="jquery/jquery-ui.js"></script>
-  <script src="scripts/webUIJavascript.js?sdfasdasdas"></script>
+  <script src="scripts/webUIJavascript.js"></script>
   <script src="scripts/spectrum.js"></script>
   <script type="text/javascript" src="scripts/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 <!--<script src="https://use.fontawesome.com/50c13653cc.js"></script>-->
