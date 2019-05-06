@@ -30,7 +30,7 @@ $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 
 //COLOR
-$builder = new JBBCode\CodeDefinitionBuilder('la-color', '<div class="elementWrapper"><div class="color-sliders-wrapper"><div id="{id}-red"></div><div id="{id}-green"></div><div id="{id}-blue"></div><div id="{id}-alpha"></div></div><div class="swatch-wrapper"><div class="swatch-bg"><div id="{id}-swatch" class="ui-color-swatch ui-widget-content ui-corner-all"></div></div><div id="{id}-swatch-label" class="ui-color-label"></div></div></div><script>'.buildColorJS().'</script>');
+$builder = new JBBCode\CodeDefinitionBuilder('la-color', '<div class="elementWrapper" id="{id}-colorPicker"></div>'.buildColorJS());
 $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 

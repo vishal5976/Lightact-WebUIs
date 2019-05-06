@@ -95,7 +95,12 @@ return $jsString;
 
 function buildColorJS(){
 //Create JS string that reads the {parameters} from shortcodes
-	$jsString='$( function() {
+	$jsString='
+	<script>
+if({Hide} != 1){
+	document.getElementById("{id}-colorPicker").innerHTML = `<div class="color-sliders-wrapper"><div id="{id}-red"></div><div id="{id}-green"></div><div id="{id}-blue"></div><div id="{id}-alpha"></div></div><div class="swatch-wrapper"><div class="swatch-bg"><div id="{id}-swatch" class="ui-color-swatch ui-widget-content ui-corner-all"></div></div><div id="{id}-swatch-label" class="ui-color-label"></div></div>`;
+}
+	$( function() {
 	function hexFromRGBA(r, g, b, a) {
       var hex = [
         r.toString( 16 ),
@@ -192,7 +197,9 @@ function buildColorJS(){
 		  setVariable("{varname}",hex);
 	  },
     });
-  } );';
+	} );
+	</script>
+	';
   return $jsString;
 }
 

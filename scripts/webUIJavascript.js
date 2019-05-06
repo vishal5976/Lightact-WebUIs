@@ -114,7 +114,7 @@ function saveUI() {
 					}
 					
 				}else if($(this).hasClass('la-color')){ // COLOR
-					columnContents+="[la-color id=\"color-"+makeID(5)+"\" varname=\""+$(this).find('.colorNewNameValue').html()+"\"][/la-color]";
+					columnContents+="[la-color id=\"color-"+makeID(5)+"\" varname=\""+$(this).find('.colorNewNameValue').html()+"\" hide=\""+$(this).find('.hideColorWidget').html()+"\"][/la-color]";
 					if($(this).find('.colorNewNameValue').html()!=$(this).find('.oldNameValue').html()){
 						newVariables.push($(this).find('.colorNewNameValue').html());
 						if($(this).find('.oldNameValue').html()!=''){
@@ -211,7 +211,9 @@ function openDialogWindow(elementReference,elementType){
 			.data('elementType',3)
 			.dialog("open");
 		$( "#dialog" ).find('.colorDialog').css('display','block');
-		$( "#dialog" ).find('.colorDialog').find('#colorNewName').val(elementReference.find('.colorNewNameValue').html());		
+		$( "#dialog" ).find('.colorDialog').find('#colorNewName').val(elementReference.find('.colorNewNameValue').html());
+		var hideCheckData = (elementReference.find('.hideColorWidget').html() == 1) ? true : false;
+		$( "#dialog" ).find('.colorDialog').find('#hideColorWidget').prop('checked', hideCheckData);		
 	}
 	if(elementType==4){//Spinner
 		$( "#dialog" )
@@ -382,7 +384,7 @@ function dialogDialog(){
 	  				  $(this).data('contentReference').find('.hideSliderWidget').html($(this).find('#hideSliderWidget').is(':checked') ? '1' : '0');
 				  }else if($(this).data('elementType')==3){ //Color picker
 					   $(this).data('contentReference').find('.colorNewNameValue').html($(this).find("#colorNewName").val());
-					   
+					   $(this).data('contentReference').find('.hideColorWidget').html($(this).find('#hideColorWidget').is(':checked') ? '1' : '0');
 				  }else if($(this).data('elementType')==4){ //Spinner
 					  $(this).data('contentReference').find('.spinnerNewNameValue').html($(this).find("#spinnerNewName").val());
 				  	  $(this).data('contentReference').find('.hideSpinnerWidget').html($(this).find('#hideSpinnerWidget').is(':checked') ? '1' : '0');

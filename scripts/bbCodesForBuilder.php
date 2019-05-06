@@ -53,7 +53,8 @@ $builder = new JBBCode\CodeDefinitionBuilder('la-color', '<li class="la-element 
     <div class="draggableContent">
 		<div class="elementName">Color picker</div>
 		<div class="colorNewName elementData"><span style="font-weight:bold">Variable: </span><span class="colorNewNameValue">{varname}</span></div>
-		<div class="oldNameValue elementHiddenData">{varname}</div></div>
+    <div class="colorHide elementData"><span style="font-weight:bold">Hide: </span><span class="hideColorWidget">{hide}</span></div>
+    <div class="oldNameValue elementHiddenData">{varname}</div></div>
   </li>');
 $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
