@@ -93,6 +93,21 @@ $( function() {
 return $jsString;
 }
 
+function buildTextBoxJS(){
+	$jsString='
+	<script>
+	if({Hide} != 1){
+		document.getElementById("{id}-textBox").innerHTML = `
+		<input id="{id}" class="ui-textbox" placeholder="Type the command here..." value="{value}">
+		<button id="{id}-button" onclick="setVariable(\'{varname}\',document.getElementById(\'{id}\').value)">Send</button>
+		</div>`;
+	}
+	$( "#{id}-button" ).button();
+	</script>
+	';
+	return $jsString;
+}
+
 function buildColorJS(){
 //Create JS string that reads the {parameters} from shortcodes
 	$jsString='

@@ -130,7 +130,7 @@ function saveUI() {
 						}
 					}
 				}else if($(this).hasClass('la-textbox')){ // TEXTBOX
-					columnContents+="[la-textbox id=\"textbox-"+makeID(5)+"\" varname=\""+$(this).find('.textBoxNewNameValue').html()+"\"][/la-textbox]";
+					columnContents+="[la-textbox id=\"textbox-"+makeID(5)+"\" varname=\""+$(this).find('.textBoxNewNameValue').html()+"\" hide=\""+$(this).find('.hideTextBoxWidget').html()+"\"][/la-textbox]";
 					if($(this).find('.textBoxNewNameValue').html()!=$(this).find('.oldNameValue').html()){
 						newVariables.push($(this).find('.textBoxNewNameValue').html());
 						if($(this).find('.oldNameValue').html()!=''){
@@ -239,7 +239,9 @@ function openDialogWindow(elementReference,elementType){
 			.data('elementType',6)
 			.dialog("open");
 		$( "#dialog" ).find('.textBoxDialog').css('display','block');
-		$( "#dialog" ).find('.textBoxDialog').find('#textBoxNewName').val(elementReference.find('.textBoxNewNameValue').html());		
+		$( "#dialog" ).find('.textBoxDialog').find('#textBoxNewName').val(elementReference.find('.textBoxNewNameValue').html());
+		var hideCheckData = (elementReference.find('.hideTextBoxWidget').html() == 1) ? true : false;
+		$( "#dialog" ).find('.textBoxDialog').find('#hideTextBoxWidget').prop('checked', hideCheckData);		
 	}
 	if(elementType==7){//File reader
 		$( "#dialog" )
@@ -393,10 +395,10 @@ function dialogDialog(){
 				  
 				  }else if($(this).data('elementType')==6){ //Textbox
 					   $(this).data('contentReference').find('.textBoxNewNameValue').html($(this).find("#textBoxNewName").val());
-					   
+					   $(this).data('contentReference').find('.hideTextBoxWidget').html($(this).find('#hideTextBoxWidget').is(':checked') ? '1' : '0');
 				  }else if($(this).data('elementType')==7){ //File reader
 					   $(this).data('contentReference').find('.cronNewNameValue').html($(this).find("#cronNewName").val());
-					   $(this).data('contentReference').find('.fileNewURLValue').html($(this).find("#fileNewURL").val());
+						 $(this).data('contentReference').find('.fileNewURLValue').html($(this).find("#fileNewURL").val());
 				  }
 				  $(this).dialog("close");
 			  }

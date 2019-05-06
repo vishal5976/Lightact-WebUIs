@@ -45,7 +45,7 @@ $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 
 //TEXTBOX
-$builder = new JBBCode\CodeDefinitionBuilder('la-textbox', '<div class="elementWrapper"><input id="{id}" class="ui-textbox" placeholder="Type the command here..." value="{value}"><button id="{id}-button" onclick="setVariable(\'{varname}\',document.getElementById(\'{id}\').value)">Send</button></div><script>$( "#{id}-button" ).button();</script>');
+$builder = new JBBCode\CodeDefinitionBuilder('la-textbox', '<div class="elementWrapper" id="{id}-textBox"></div>'.buildTextBoxJS());
 $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 

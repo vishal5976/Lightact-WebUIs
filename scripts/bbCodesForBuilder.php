@@ -95,7 +95,8 @@ $builder = new JBBCode\CodeDefinitionBuilder('la-textbox', '<li class="la-elemen
     <div class="draggableContent">
 		<div class="elementName">Textbox</div>
 		<div class="textBoxNewName elementData"><span style="font-weight:bold">Variable: </span><span class="textBoxNewNameValue">{varname}</span></div>
-        <div class="oldNameValue elementHiddenData">{varname}</div>
+    <div class="textBoxHide elementData"><span style="font-weight:bold">Hide: </span><span class="hideTextBoxWidget">{hide}</span></div>    
+    <div class="oldNameValue elementHiddenData">{varname}</div>
 	</div>
   </li>');
 $builder->setUseOption(true);

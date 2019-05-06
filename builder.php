@@ -64,7 +64,7 @@ $hideUI='';
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
   <script src="jquery/jquery-3.2.1.min.js"></script>
   <script src="jquery/jquery-ui.js"></script>
-  <script src="scripts/webUIJavascript.js"></script>
+  <script src="scripts/webUIJavascript.js?sdfasdasdas"></script>
   <script src="scripts/spectrum.js"></script>
   <script type="text/javascript" src="scripts/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 <!--<script src="https://use.fontawesome.com/50c13653cc.js"></script>-->
@@ -146,7 +146,8 @@ if($selectedUI!=0){?>
                <div class="stylingProperty"><input type = "checkbox" name="hideSpinnerWidget" id="hideSpinnerWidget" value="1">Hide this widget</input></div>
           </div>
           <div class="textBoxDialog">
-              Variable name: <br><input name="textBoxNewName" id="textBoxNewName" type="text" value="">
+          <div class="stylingProperty">Variable name: <br><input name="textBoxNewName" id="textBoxNewName" type="text" value=""></div>
+          <div class="stylingProperty"><input type = "checkbox" name="hideTextBoxWidget" id="hideTextBoxWidget" value="1">Hide this widget</input></div>
           </div>
           <div class="paddingDialog">
               Height (just a number in pixels): <input name="paddingHeight" id="paddingHeight" type="number" size="4">
@@ -263,6 +264,7 @@ if($selectedUI!=0){?>
           <div class="draggableContent">
             <div class="elementName">Textbox</div>
             <div class="textBoxNewName elementData"><span style="font-weight:bold">Variable: </span><span class="textBoxNewNameValue"></span></div>
+            <div class="textBoxHide elementData"><span style="font-weight:bold">Hide: </span><span class="hideTextBoxWidget"></span></div>
             <div class="oldNameValue elementHiddenData"></div>
           </div>
         </li>
