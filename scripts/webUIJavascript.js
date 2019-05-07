@@ -149,6 +149,8 @@ function saveUI() {
 							oldCrons.push($(this).find('.oldCronParam').html());
 						}
 					}
+				}else if($(this).hasClass('la-schedule')){ // SCHEDULE
+					columnContents+="[la-schedule id=\"schedule-"+makeID(5)+"\" hide=\""+$(this).find('.hideScheduleBoxWidget').html()+"\"][/la-schedule]";
 				}
 			});
 			if ($(this).hasClass('col1')){$colClass='col1';}
@@ -252,6 +254,15 @@ function openDialogWindow(elementReference,elementType){
 		$( "#dialog" ).find('.fileReaderDialog').find('#cronNewName').val(elementReference.find('.cronNewNameValue').html());	
 		$( "#dialog" ).find('.fileReaderDialog').find('#fileNewURL').val(elementReference.find('.fileNewURLValue').html());		
 	}
+	if(elementType==8){//schedule
+		$( "#dialog" )
+			.data('contentReference',elementReference)
+			.data('elementType',8)
+			.dialog("open");
+		$( "#dialog" ).find('.scheduleDialog').css('display','block');
+		var hideCheckData = (elementReference.find('.hideScheduleBoxWidget').html() == 1) ? true : false;
+		$( "#dialog" ).find('.scheduleDialog').find('#hideScheduleBoxWidget').prop('checked', hideCheckData);
+	}
 }
 
 function resetColumns(rowObject,newColumnNumber){
@@ -351,6 +362,9 @@ function columnSortable(){
 			if($droppedElement.hasClass('la-fileReader')){ //File reader
 			  	openDialogWindow($droppedElement.find('.draggableContent'),7);
 			}
+			if($droppedElement.hasClass('la-schedule')){ //File reader
+				openDialogWindow($droppedElement.find('.draggableContent'),8);
+			}
 		}
 	});
 }
@@ -399,7 +413,9 @@ function dialogDialog(){
 				  }else if($(this).data('elementType')==7){ //File reader
 					   $(this).data('contentReference').find('.cronNewNameValue').html($(this).find("#cronNewName").val());
 						 $(this).data('contentReference').find('.fileNewURLValue').html($(this).find("#fileNewURL").val());
-				  }
+				  } else if($(this).data('elementType')==8){ //Schedule
+						$(this).data('contentReference').find('.hideScheduleBoxWidget').html($(this).find('#hideScheduleBoxWidget').is(':checked') ? '1' : '0');
+				 }
 				  $(this).dialog("close");
 			  }
 		  },
