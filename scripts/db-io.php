@@ -13,8 +13,9 @@ if(isset($_POST['uiid'])){ //if post is set we are saving the data first
 	  $sidebar=0;
 	  if(isset($_POST['sidebar'])){
 		  $sidebar=1;
-	  }
-	  
+		}
+		//check command scheduler exist or not if exist then check table exist or not if table not exist create table
+		checkScheduler($_POST['pageInShortcodes']);
 	  //Delete old variables and create new ones in web_variables table
 	  $newVariables=json_decode($_POST['newVariables']);
 	  $oldVariables=json_decode($_POST['oldVariables']);
@@ -155,5 +156,32 @@ if(isset($_POST['uiid'])){ //if post is set we are saving the data first
   echo $responseString;
 }
 
+function checkScheduler($shortcode){
+	include("laConfig.php");
+	if (strpos($shortcode, '[/la-schedule]')) {
+		try{
+			$sql = "SELECT 1 FROM web_schedule LIMIT 1";
+			$result = $db->query($sql);
+		} catch (Exception $e) {
+			createTableScheduler();
+		}
+		return true;
+	}
+}
 
+function createTableScheduler(){
+	include("laConfig.php");
+	$sql = "CREATE TABLE web_schedule (
+		webui_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+		seconds JSON,
+		minutes JSON,
+		day_names JSON,
+		days JSON,
+		months JSON,
+		years JSON,
+		command TINYTEXT
+		)";
+	$result = $db->query($sql);
+	return true;
+}
 ?>

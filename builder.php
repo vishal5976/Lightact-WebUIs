@@ -298,13 +298,13 @@ if($selectedUI!=0){?>
           </li>
           <!--Schedule = 8-->
           <li class="la-element la-schedule draggable ui-widget-content">
-            <div class="elementIcon"><i class="fa fa-minus-square-o" aria-hidden="true"></i></div>
+            <div class="elementIcon"><i class="fa fa-calendar" aria-hidden="true"></i></div>
             <div class="elementControls">
               <button class="iconButtons">
                   <i class="fa fa-pencil" aria-hidden="true" onClick="openDialogWindow($(this).parent().parent().siblings('.draggableContent'),8)"></i></button>
           <button class="iconButtons"><i class="fa fa-remove" aria-hidden="true" onClick="$(this).closest('.la-element').remove()"></i></button></div>
             <div class="draggableContent">
-              <div class="elementName">Schedule</div>
+              <div class="elementName">Scheduler</div>
               <div class="scheduleHide elementData"><span style="font-weight:bold">Hide: </span><span class="hideScheduleBoxWidget"></span></div>
             </div>
           </li>

@@ -127,9 +127,9 @@ $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 //Schedule
 $builder = new JBBCode\CodeDefinitionBuilder('la-schedule', '<li class="la-element la-schedule ui-widget-content" onMouseOver="$(this).find(\'.elementControls\').css(\'visibility\',\'visible\');" onMouseOut="$(this).find(\'.elementControls\').css(\'visibility\',\'hidden\');">
-<div class="elementIcon"><i class="fa fa-minus-square-o" aria-hidden="true"></i></div>
+<div class="elementIcon"><i class="fa fa-calendar" aria-hidden="true"></i></div>
 <div class="elementControls"><button class="iconButtons"><i class="fa fa-pencil" aria-hidden="true" onClick="openDialogWindow($(this).parent().parent().siblings(\'.draggableContent\'),8)"></i></button><button class="iconButtons"><i class="fa fa-remove" aria-hidden="true" onClick="$(this).closest(\'.la-element\').remove()"></i></button></div>
-<div class="draggableContent"><div class="elementName">Schedule</div><div class="scheduleHide elementData"><span style="font-weight:bold">Hide: </span><span class="hideScheduleBoxWidget">{hide}</span></div></div></li>');
+<div class="draggableContent"><div class="elementName">Scheduler</div><div class="scheduleHide elementData"><span style="font-weight:bold">Hide: </span><span class="hideScheduleBoxWidget">{hide}</span></div></div></li>');
 $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 ?>
