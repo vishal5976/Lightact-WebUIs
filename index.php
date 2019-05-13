@@ -32,12 +32,15 @@ if(isset($_GET['id'])){
 	<title>Lightact WebUI</title>
     <link rel="icon" href="assets/lightact-16.png">
 	<link href="jquery/jquery-ui.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/webui-index.css">
+    <link rel="stylesheet" type="text/css" href="css/webui-index.css?sd">
     <script src="jquery/jquery-3.2.1.min.js"></script>
     <script src="jquery/external/jquery/jquery.js"></script>
 	<script src="jquery/jquery-ui.js"></script>
     <script src="scripts/jquery.ui.touch-punch.min.js"></script>
-    <script src="scripts/webUIJavascript.js?sd=sdfsdf"></script>
+    <script src="scripts/webUIJavascript.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     
 <?php
 

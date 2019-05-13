@@ -54,4 +54,9 @@ $builder = new JBBCode\CodeDefinitionBuilder('la-filereader', '<div class="eleme
 $builder->setUseOption(true);
 $parser->addCodeDefinition($builder->build());
 
+//SCHEDULE
+$builder = new JBBCode\CodeDefinitionBuilder('la-schedule', '<div class="elementWrapper" id="{id}-schedule"><button id="{id}" data-toggle="modal" data-target="#{id}-model">Add Schedule</button>'.buildScheduleJS().'</div>');
+$builder->setUseOption(true);
+$parser->addCodeDefinition($builder->build());
+
 ?>

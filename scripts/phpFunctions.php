@@ -235,4 +235,92 @@ $( "#{id}" ).spinner({
 return $jsString;
 }
 
+function buildScheduleJS(){
+	$jsString='
+	<div class="modal fade" id="{id}-model" role="dialog">
+	    <div class="modal-dialog modal-lg">
+	    	<div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h4 class="modal-title"><h1>Add a Scheduled Command</h1></h4>
+		        </div>
+				<div class="modal-body">
+					<div class="container col-md-12">
+						<div class="row">
+							<input type="text" id="command-text" placeholder="Type command here..."/>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<select name="years" id="years" multiple>
+									<option value="2019">2019</option>
+									<option value="2020">2020</option>
+									<option value="2021">2021</option>
+									<option value="2022">2022</option>
+									<option value="2023">2023</option>
+								</select>
+							<br>
+								<input type="button" value="Select All" onClick="selectAllData(`{id}`, `years`)"/>
+							</div>
+							<div class="col-md-3">
+								<select name="months" id="months" multiple>
+									<option value="January">January</option>
+									<option value="February">February</option>
+									<option value="March">March</option>
+									<option value="Aoruk">April</option>
+									<option value="May">May</option>
+								</select>
+							<br>
+								<input type="button" value="Select All" onClick="selectAllData(`{id}`,`months`)"/>
+							</div>
+							<div class="col-md-3">
+								<select name="days" id="days" multiple>
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							<br>
+								<input type="button" value="Select All" onClick="selectAllData(`{id}`,`days`)"/>
+							</div>
+							<div class="col-md-3">
+								<select name="minutes" id="minutes" multiple>
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							<br>
+								<input type="button" value="Select All" onClick="selectAllData(`{id}`,`minutes`)"/>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<select name="seconds" id="seconds" multiple>
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							<br>
+								<input type="button" value="Select All" onClick="selectAllData(`{id}`,`seconds`)"/>
+							</div>
+						</div>	
+						<input type="checkbox" name="repetition" />
+						<input type="number" name="limit_repetition"/>
+	    			</div>
+	    		</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" onClick="sendSchedule()">Apply</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	    		</div>
+			</div>
+	    </div>
+	</div>
+	';
+	return $jsString;
+	}
+
 ?>

@@ -5,6 +5,15 @@ var oldVariables=new Array();
 var newCrons=new Array();
 var oldCrons=new Array();
 
+function sendSchedule(data){
+	//this function open modal for add schedule data
+	alert(data);
+}
+
+function selectAllData(model, key){
+	$( `#${model}-model` ).find(`#${key} option`).prop('selected',true);
+}
+
 function sendCommand(command) {
 	//this function sends commands to php scripts which writes them to db
 	$.ajax({
