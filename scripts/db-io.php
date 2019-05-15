@@ -155,7 +155,7 @@ if(isset($_POST['uiid'])){ //if post is set we are saving the data first
   
   echo $responseString;
 }
-
+//Check scheduler table exist
 function checkScheduler($shortcode){
 	include("laConfig.php");
 	if (strpos($shortcode, '[/la-schedule]')) {
@@ -169,6 +169,7 @@ function checkScheduler($shortcode){
 	}
 }
 
+//If table is not exist then create
 function createTableScheduler(){
 	include("laConfig.php");
 	$sql = "CREATE TABLE web_schedule (

@@ -5,11 +5,13 @@ var oldVariables=new Array();
 var newCrons=new Array();
 var oldCrons=new Array();
 
+//after model opening this function should call
 function sendSchedule(data){
 	//this function open modal for add schedule data
 	alert(data);
 }
 
+//This function select all years, time in schedule model
 function selectAllData(model, key){
 	$( `#${model}-model` ).find(`#${key} option`).prop('selected',true);
 }
